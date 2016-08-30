@@ -44,14 +44,14 @@ public class CreatorAction extends BaseGenerateAction implements IConfirmListene
 
     @Override
     protected boolean isValidForClass(PsiClass targetClass) {
-        log.info("isValidForClass " + targetClass.getName() + " " + targetClass.getText());
+        log.info("isValidForClass " + targetClass.getName());
         return super.isValidForClass(targetClass);
     }
 
     @Override
     protected boolean isValidForFile(@NotNull Project project, @NotNull Editor editor, @NotNull PsiFile file) {
         log.info("isValidForFile: " + project.getName() + " editor: " + editor.toString() +
-                " psfile: " + file.getName() + " : " + file.getText());
+                " psfile: " + file.getName());
         return super.isValidForFile(project, editor, file);
     }
 
@@ -92,14 +92,14 @@ public class CreatorAction extends BaseGenerateAction implements IConfirmListene
         if (file == null) {
             return;
         }
-        log.info("showDialog: file: " + file.getName() + " text: " + file.getText());
+        log.info("showDialog: file: " + file.getName());
         PsiClass clazz = getTargetClass(editor, file);
 
         if (clazz == null) {
             return;
         }
 
-        log.info("showDialog: clazz: " + clazz.getName() + " " + clazz.getText());
+        log.info("showDialog: clazz: " + clazz.getName());
         // get parent classes and check if it's an adapter
         boolean createHolder = false;
 
@@ -119,7 +119,7 @@ public class CreatorAction extends BaseGenerateAction implements IConfirmListene
 
     @Override
     public void onCancel() {
-
+        closeDialog();
     }
 
     @Override

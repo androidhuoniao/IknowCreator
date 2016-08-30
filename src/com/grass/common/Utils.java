@@ -57,6 +57,7 @@ public class Utils {
      *
      * @param editor
      * @param file
+     *
      * @return
      */
     public static PsiFile getLayoutFileFromCaret(Editor editor, PsiFile file) {
@@ -77,6 +78,7 @@ public class Utils {
      * Try to find layout XML file in selected element
      *
      * @param element
+     *
      * @return
      */
     public static PsiFile findLayoutResource(PsiElement element) {
@@ -138,6 +140,7 @@ public class Utils {
      * @param file
      * @param project
      * @param fileName
+     *
      * @return
      */
     public static PsiFile findLayoutResource(PsiFile file, Project project, String fileName) {
@@ -150,6 +153,7 @@ public class Utils {
      * Obtain all IDs from layout
      *
      * @param file
+     *
      * @return
      */
     public static ArrayList<Element> getIDsFromLayout(final PsiFile file) {
@@ -162,6 +166,7 @@ public class Utils {
      * Obtain all IDs from layout
      *
      * @param file
+     *
      * @return
      */
     public static ArrayList<Element> getIDsFromLayout(final PsiFile file, final ArrayList<Element> elements) {
@@ -222,6 +227,7 @@ public class Utils {
      * Get layout name from XML identifier (@layout/....)
      *
      * @param layout
+     *
      * @return
      */
     public static String getLayoutName(String layout) {
@@ -293,7 +299,6 @@ public class Utils {
         return PropertiesComponent.getInstance().getValue(Settings.VIEWHOLDER_CLASS_NAME, "ViewHolder");
     }
 
-
     public static int getInjectCount(ArrayList<Element> elements) {
         int cnt = 0;
         for (Element element : elements) {
@@ -318,6 +323,7 @@ public class Utils {
      * Easier way to check if string is empty
      *
      * @param text
+     *
      * @return
      */
     public static boolean isEmptyString(String text) {
@@ -330,10 +336,13 @@ public class Utils {
      * @param project    Project
      * @param psiElement Element for which we check the class
      * @param className  Class name of the searched class
+     *
      * @return True if the class is present on the classpath
+     *
      * @since 1.3
      */
-    public static boolean isClassAvailableForPsiFile(@NotNull Project project, @NotNull PsiElement psiElement, @NotNull String className) {
+    public static boolean isClassAvailableForPsiFile(@NotNull Project project, @NotNull PsiElement psiElement,
+                                                     @NotNull String className) {
         Module module = ModuleUtil.findModuleForPsiElement(psiElement);
         if (module == null) {
             return false;
@@ -349,7 +358,9 @@ public class Utils {
      *
      * @param project   Project
      * @param className Class name of the searched class
+     *
      * @return True if the class is present on the classpath
+     *
      * @since 1.3.1
      */
     public static boolean isClassAvailableForProject(@NotNull Project project, @NotNull String className) {
